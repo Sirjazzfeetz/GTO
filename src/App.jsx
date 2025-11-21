@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Loader } from '@react-three/drei';
 import Scene from './components/Scene';
 import { Leva } from 'leva';
-import { BrowserRouter, Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link, useParams, Navigate, useLocation } from 'react-router-dom';
 import HomeDemo from './demos/HomeDemo';
 import MagnumTuneDemo from './demos/MagnumTuneDemo';
 import SpinDemo from './demos/SpinDemo';
@@ -93,9 +93,9 @@ function Layout() {
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Layout />
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
