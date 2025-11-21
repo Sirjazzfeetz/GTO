@@ -5,7 +5,11 @@ import * as THREE from 'three';
 import { SkeletonUtils } from 'three-stdlib';
 
 export default function CarModel({ activeCar = 'classic', ...props }) {
-  const modelPath = activeCar === 'modern' ? '/models/ferrari_modern.glb' : '/models/ferrari_classic2.glb';
+  const baseUrl = import.meta.env.BASE_URL;
+  const modelPath = activeCar === 'modern'
+    ? `${baseUrl}models/ferrari_modern.glb`
+    : `${baseUrl}models/ferrari_classic2.glb`;
+
   console.log(`CarModel: Loading ${activeCar} car from ${modelPath}`);
 
   const { scene } = useGLTF(modelPath);
@@ -57,5 +61,7 @@ export default function CarModel({ activeCar = 'classic', ...props }) {
   return <primitive object={clone} rotation={[0, Math.PI, 0]} {...props} />;
 }
 
-useGLTF.preload('/models/ferrari_classic2.glb');
-useGLTF.preload('/models/ferrari_modern.glb');
+// Preload with correct base URL
+const baseUrl = import.meta.env.BASE_URL;
+useGLTF.preload(`${baseUrl}models/ferrari_classic2.glb`);
+useGLTF.preload(`${baseUrl}models/ferrari_modern.glb`);
