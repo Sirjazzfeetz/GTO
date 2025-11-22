@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { OrbitControls, Html } from '@react-three/drei';
 import CarModel from '../components/CarModel';
-import { Volume2, VolumeX, Hand, MoveVertical } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export default function HomeDemo({ activeCar }) {
     const [isMuted, setIsMuted] = useState(false);
@@ -63,16 +63,9 @@ export default function HomeDemo({ activeCar }) {
             <Html fullscreen style={{ pointerEvents: 'none' }}>
                 <div className="w-full h-full relative">
                     {/* Instructions - Positioned relative to bottom */}
-                    <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full pointer-events-none">
-                        <style>{`
-                            @keyframes scroll-hint {
-                                0%, 100% { transform: translateY(0); opacity: 0.5; }
-                                50% { transform: translateY(-15px); opacity: 1; }
-                            }
-                        `}</style>
-                        <div className="flex items-center gap-3 opacity-80">
-                            <MoveVertical size={24} className="text-white/70" />
-                            <Hand size={32} className="text-white animate-[scroll-hint_2s_ease-in-out_infinite]" />
+                    <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full">
+                        <div className="text-[0.65rem] md:text-xs text-gray-500 uppercase tracking-widest font-mono bg-black/20 backdrop-blur-sm px-2 py-1 rounded">
+                            Scroll to interact • Drag to rotate
                         </div>
                     </div>
 
@@ -101,7 +94,7 @@ export default function HomeDemo({ activeCar }) {
                     scrolling="no"
                     frameBorder="no"
                     allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/holden-jones-402363783/magnum-p-i-extended-theme-song&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/moviesoundtrackallstars/theme-from-magnum-pi&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
                     style={{ display: 'none' }}
                 />
             </Html>
