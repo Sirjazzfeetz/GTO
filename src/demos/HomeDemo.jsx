@@ -14,16 +14,31 @@ export default function HomeDemo({ activeCar }) {
         script.async = true;
         document.body.appendChild(script);
 
+        const unlockAudio = () => {
+            if (widgetRef.current) {
+                widgetRef.current.play();
+                // Remove listeners after first interaction
+                document.removeEventListener('click', unlockAudio);
+                document.removeEventListener('touchstart', unlockAudio);
+                document.removeEventListener('keydown', unlockAudio);
+            }
+        };
+
         script.onload = () => {
             const iframe = document.getElementById('sc-widget');
             if (iframe && window.SC) {
                 widgetRef.current = window.SC.Widget(iframe);
 
                 widgetRef.current.bind(window.SC.Widget.Events.READY, () => {
-                    // Auto-play when ready
+                    // Attempt auto-play when ready
                     widgetRef.current.play();
                     widgetRef.current.setVolume(100);
                 });
+
+                // Add global listeners to "unlock" audio on first interaction
+                document.addEventListener('click', unlockAudio);
+                document.addEventListener('touchstart', unlockAudio);
+                document.addEventListener('keydown', unlockAudio);
             }
         };
 
@@ -31,6 +46,9 @@ export default function HomeDemo({ activeCar }) {
             if (document.body.contains(script)) {
                 document.body.removeChild(script);
             }
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('keydown', unlockAudio);
         };
     }, []);
 
@@ -89,7 +107,7 @@ export default function HomeDemo({ activeCar }) {
                     </div>
                 </div>
 
-                {/* Hidden SoundCloud iframe */}
+                {/* Hidden SoundCloud iframe - using opacity 0 instead of display none */}
                 <iframe
                     id="sc-widget"
                     width="100%"
@@ -98,7 +116,7 @@ export default function HomeDemo({ activeCar }) {
                     frameBorder="no"
                     allow="autoplay; encrypted-media"
                     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/moviesoundtrackallstars/theme-from-magnum-pi&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
-                    style={{ display: 'none' }}
+                    style={{ position: 'absolute', opacity: 0, pointerEvents: 'none', zIndex: -1 }}
                 />
             </Html>
         </>
