@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { OrbitControls, Html } from '@react-three/drei';
 import CarModel from '../components/CarModel';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Hand } from 'lucide-react';
 
 export default function HomeDemo({ activeCar }) {
     const [isMuted, setIsMuted] = useState(false);
@@ -82,8 +82,9 @@ export default function HomeDemo({ activeCar }) {
                             {isMuted ? <VolumeX size={20} className="md:w-6 md:h-6" /> : <Volume2 size={20} className="md:w-6 md:h-6" />}
                         </button>
 
-                        <div className="text-lg md:text-2xl font-light tracking-[0.2em] uppercase text-center animate-shimmer max-w-[90%] md:max-w-none leading-tight">
-                            New Scroll Transitions added to Menu
+                        {/* Swipe Icon */}
+                        <div className="text-white/80 animate-pulse">
+                            <Hand size={32} className="md:w-10 md:h-10 rotate-12" />
                         </div>
                     </div>
                 </div>
