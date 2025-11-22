@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { OrbitControls, Html } from '@react-three/drei';
 import CarModel from '../components/CarModel';
-import { Volume2, VolumeX, Hand } from 'lucide-react';
+import { Volume2, VolumeX, Hand, MoveVertical } from 'lucide-react';
 
 export default function HomeDemo({ activeCar }) {
     const [isMuted, setIsMuted] = useState(false);
@@ -65,13 +65,14 @@ export default function HomeDemo({ activeCar }) {
                     {/* Instructions - Positioned relative to bottom */}
                     <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full pointer-events-none">
                         <style>{`
-                            @keyframes swipe-hint {
-                                0%, 100% { transform: translateX(-10px); opacity: 0.5; }
-                                50% { transform: translateX(10px); opacity: 1; }
+                            @keyframes scroll-hint {
+                                0%, 100% { transform: translateY(0); opacity: 0.5; }
+                                50% { transform: translateY(-15px); opacity: 1; }
                             }
                         `}</style>
-                        <div className="flex flex-col items-center gap-2 opacity-60">
-                            <Hand size={32} className="text-white animate-[swipe-hint_2s_ease-in-out_infinite]" />
+                        <div className="flex items-center gap-3 opacity-80">
+                            <MoveVertical size={24} className="text-white/70" />
+                            <Hand size={32} className="text-white animate-[scroll-hint_2s_ease-in-out_infinite]" />
                         </div>
                     </div>
 
