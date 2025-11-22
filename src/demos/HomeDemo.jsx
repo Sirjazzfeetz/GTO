@@ -83,13 +83,13 @@ export default function HomeDemo({ activeCar }) {
             <Html fullscreen style={{ pointerEvents: 'none' }}>
                 <div className="w-full h-full relative">
                     {/* Instructions - Positioned relative to bottom */}
-                    <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full">
-                        <div className="text-[0.65rem] md:text-xs text-gray-500 uppercase tracking-widest font-mono bg-black/20 backdrop-blur-sm px-2 py-1 rounded">
-                            Scroll to interact • Drag to rotate
+                    <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full pointer-events-none">
+                        <div className="text-white/80 animate-bounce">
+                            <Hand size={32} className="md:w-10 md:h-10" />
                         </div>
                     </div>
 
-                    {/* Sound button and CTA Text */}
+                    {/* Sound button */}
                     <div className="absolute bottom-[15%] md:bottom-60 left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full gap-4 md:gap-6 px-4">
                         {/* Mute/Unmute Button */}
                         <button
@@ -99,11 +99,6 @@ export default function HomeDemo({ activeCar }) {
                         >
                             {isMuted ? <VolumeX size={20} className="md:w-6 md:h-6" /> : <Volume2 size={20} className="md:w-6 md:h-6" />}
                         </button>
-
-                        {/* Swipe Icon */}
-                        <div className="text-white/80 animate-pulse">
-                            <Hand size={32} className="md:w-10 md:h-10 rotate-12" />
-                        </div>
                     </div>
                 </div>
 
