@@ -62,25 +62,25 @@ export default function HomeDemo({ activeCar }) {
 
             <Html fullscreen style={{ pointerEvents: 'none' }}>
                 <div className="w-full h-full relative">
-                    {/* Instructions - Positioned very high */}
-                    <div className="absolute bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full">
-                        <div className="text-xs text-gray-500 uppercase tracking-widest font-mono">
+                    {/* Instructions - Positioned relative to bottom */}
+                    <div className="absolute bottom-[35%] md:bottom-[28rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full">
+                        <div className="text-[0.65rem] md:text-xs text-gray-500 uppercase tracking-widest font-mono bg-black/20 backdrop-blur-sm px-2 py-1 rounded">
                             Scroll to interact • Drag to rotate
                         </div>
                     </div>
 
                     {/* Sound button and CTA Text */}
-                    <div className="absolute bottom-60 left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full gap-6">
+                    <div className="absolute bottom-[15%] md:bottom-60 left-1/2 transform -translate-x-1/2 flex flex-col items-center w-full gap-4 md:gap-6 px-4">
                         {/* Mute/Unmute Button */}
                         <button
                             onClick={toggleMute}
-                            className="pointer-events-auto bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-110 border-2 border-red-400"
+                            className="pointer-events-auto bg-red-600 hover:bg-red-700 text-white p-3 md:p-4 rounded-full shadow-lg transition-all transform hover:scale-110 border-2 border-red-400"
                             aria-label={isMuted ? 'Unmute' : 'Mute'}
                         >
-                            {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+                            {isMuted ? <VolumeX size={20} className="md:w-6 md:h-6" /> : <Volume2 size={20} className="md:w-6 md:h-6" />}
                         </button>
 
-                        <div className="text-2xl font-light tracking-[0.2em] uppercase text-center animate-shimmer whitespace-nowrap">
+                        <div className="text-lg md:text-2xl font-light tracking-[0.2em] uppercase text-center animate-shimmer max-w-[90%] md:max-w-none leading-tight">
                             New Scroll Transitions added to Menu
                         </div>
                     </div>

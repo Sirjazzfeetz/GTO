@@ -58,15 +58,15 @@ function Layout() {
     return (
         <div className="w-full h-screen bg-black relative overflow-hidden font-sans text-white">
             {/* UI Overlay */}
-            <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-6">
+            <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between p-4 md:p-6">
                 {/* Header & Navigation */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6 pointer-events-auto w-full max-w-7xl mx-auto">
-                    <header className="flex flex-col items-center md:items-start justify-center py-4">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 pointer-events-auto w-full max-w-7xl mx-auto">
+                    <header className="flex flex-col items-center md:items-start justify-center py-2 md:py-4">
                         <div className="text-center md:text-left">
-                            <h1 className="text-4xl md:text-6xl font-['Alfa_Slab_One'] tracking-wider text-white drop-shadow-[0_4px_0_rgba(220,38,38,0.8)] transform -skew-x-6">
+                            <h1 className="text-3xl md:text-6xl font-['Alfa_Slab_One'] tracking-wider text-white drop-shadow-[0_4px_0_rgba(220,38,38,0.8)] transform -skew-x-6">
                                 MAGNUM P.I. <span className="text-red-600">FERRARI</span>
                             </h1>
-                            <p className="text-gray-300 text-xs md:text-sm tracking-[0.4em] uppercase mt-2 font-bold bg-black/40 inline-block px-2 py-1 backdrop-blur-sm border-l-2 border-red-600">
+                            <p className="text-gray-300 text-[0.6rem] md:text-sm tracking-[0.4em] uppercase mt-2 font-bold bg-black/40 inline-block px-2 py-1 backdrop-blur-sm border-l-2 border-red-600">
                                 Premium Scroll Experience
                             </p>
                         </div>

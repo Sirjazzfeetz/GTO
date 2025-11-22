@@ -21,17 +21,21 @@ import HomeDemo from '../demos/HomeDemo';
 import MagnumTuneDemo from '../demos/MagnumTuneDemo';
 
 function CameraHandler({ activeDemo }) {
-    const { camera } = useThree();
+    const { camera, size } = useThree();
 
     useEffect(() => {
         // Reset camera to default state when demo changes
-        camera.position.set(0, 0, 10); // Zoomed out from 5 to 10
+        // Check for portrait mode (aspect ratio < 1)
+        const isPortrait = size.width / size.height < 1;
+        const defaultZ = isPortrait ? 14 : 10; // Zoom out more on mobile portrait
+
+        camera.position.set(0, 0, defaultZ);
         camera.rotation.set(0, 0, 0);
         camera.zoom = 1;
         camera.fov = 50;
         camera.updateProjectionMatrix();
         camera.lookAt(0, 0, 0);
-    }, [activeDemo, camera]);
+    }, [activeDemo, camera, size.width, size.height]);
 
     return null;
 }
