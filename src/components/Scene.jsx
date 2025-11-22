@@ -27,7 +27,7 @@ function CameraHandler({ activeDemo }) {
         // Reset camera to default state when demo changes
         // Check for portrait mode (aspect ratio < 1)
         const isPortrait = size.width / size.height < 1;
-        const defaultZ = isPortrait ? 18 : 10; // Increased from 14 to 18 for better visibility
+        const defaultZ = isPortrait ? 12 : 6; // Closer camera for better view
 
         console.log(`CameraHandler: Resizing. Portrait: ${isPortrait} (${size.width}x${size.height}). Setting Z to ${defaultZ}`);
 
