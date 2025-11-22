@@ -41,6 +41,8 @@ export default function HomeDemo({ activeCar }) {
             } else {
                 widgetRef.current.setVolume(0);
             }
+            // Ensure it plays if it was blocked by autoplay policy
+            widgetRef.current.play();
             setIsMuted(!isMuted);
         }
     };
@@ -93,7 +95,7 @@ export default function HomeDemo({ activeCar }) {
                     height="166"
                     scrolling="no"
                     frameBorder="no"
-                    allow="autoplay"
+                    allow="autoplay; encrypted-media"
                     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/moviesoundtrackallstars/theme-from-magnum-pi&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
                     style={{ display: 'none' }}
                 />
